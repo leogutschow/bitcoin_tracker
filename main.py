@@ -8,8 +8,8 @@ def main():
     nomes, precos = firefox.pegaPrecos()
 
     sql = ConexaoSQL()
-    sql.acrescentaValores(moedas=nomes, precos=precos)
-    valores = sql.imprimeValores()
+    sql.acrescenta_valores(moedas=nomes, precos=precos)
+    valores = sql.imprime_valores()
 
     print(valores)
 

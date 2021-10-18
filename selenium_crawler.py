@@ -10,7 +10,7 @@ import time
 
 class FirefoxCrawler():
     def __init__(self):
-        self.driver = webdriver.Firefox(executable_path=r"D:\VisualStudioCode\SeleniumProjectBitCoin\driver\geckodriver.exe")
+        self.driver = webdriver.Firefox(executable_path=r"./driver\geckodriver.exe")
         '''
         Os dados estão em um dicionário para, caso precise, adicionar mais dados
         '''

@@ -17,10 +17,12 @@ class ConexaoSQL:
             cursorclass = pymysql.cursors.DictCursor
         )
 
-    def acrescentaValores(self, moedas:list, precos:list):
+    def acrescenta_valores(self, moedas:list, precos:list):
         '''
         Pega os valores e os coloca na Base de Dados
         '''
+
+        
 
         lista_tuplas = []
         for i in range(10):
@@ -29,6 +31,7 @@ class ConexaoSQL:
         dia = datetime.now()
         dia = dia.strftime("%d/%m")
         with self.conexao.cursor() as cursor:
+            cursor.execute('CREATE TABLE IF NOT EXISTS precos')
             print("Colocando dados na tabela")
             sql = 'INSERT INTO precos (dia, preco, moeda) SELECT  %s, %s, id  FROM moedas WHERE moedas.nome = %s'
             for tupla in lista_tuplas:
@@ -38,7 +41,7 @@ class ConexaoSQL:
 
         self.conexao.commit()
 
-    def imprimeValores(self):
+    def imprime_valores(self):
 
         '''
         Essa função, por enquanto, imprime todos os valores
